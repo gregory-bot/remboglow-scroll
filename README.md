@@ -1,142 +1,166 @@
-# Face-Fit Web3 Integration
+Face-Fit Web3 Integration — Scroll Edition 🌀
 
-A comprehensive Web3 integration for the Face-Fit fashion recommender app, featuring wallet connection, USDC payments on Base testnet, upload credit management, and NFT minting capabilities.
+A comprehensive Web3 integration for the Face-Fit fashion recommender app, featuring Scroll wallet connection, on-chain payments, upload credit management, and NFT minting on the Scroll network.
 
-## 🚀 Features
+🚀 Features
 
-- **Wallet Connection**: MetaMask, Coinbase Wallet, WalletConnect support
-- **Upload Credits**: 2 free uploads, then pay $5 USDC per upload
-- **Smart Contract**: Tracks user credits and handles USDC payments
-- **Base Testnet**: Built for Base blockchain testnet
-- **NFT Minting**: Optional skincare routine NFTs with private metadata
-- **Responsive Design**: Mobile-first, production-ready UI
+Wallet Connection: Scroll Wallet, MetaMask, Coinbase Wallet, WalletConnect
 
-## 🛠 Tech Stack
+Upload Credits: 2 free uploads, then pay on Scroll for more credits
 
-- **Frontend**: React + TypeScript + Tailwind CSS
-- **Web3**: Wagmi + RainbowKit + Viem
-- **Blockchain**: Base testnet (EVM compatible)
-- **Smart Contracts**: Solidity + Hardhat
-- **Payment Token**: USDC (ERC-20)
+Smart Contract: Tracks user credits and handles on-chain payments
 
-## 📋 Prerequisites
+Scroll Network: Fully integrated with Scroll (EVM-compatible)
 
-1. **Node.js** (v18 or higher)
-2. **MetaMask** or compatible Web3 wallet
-3. **Base testnet ETH** for gas fees
-4. **Base testnet USDC** for payments
+NFT Minting: Optional skincare routine NFTs with private metadata
 
-## 🔧 Installation & Setup
+Responsive Design: Mobile-first, production-ready UI
 
-### 1. Install Dependencies
+🛠 Tech Stack
 
-```bash
+Frontend: React + TypeScript + Tailwind CSS
+
+Web3: Wagmi + RainbowKit + Viem
+
+Blockchain: Scroll testnet (EVM compatible)
+
+Smart Contracts: Solidity + Hardhat
+
+Payment Gateway: Scroll native payments
+
+📋 Prerequisites
+
+Node.js (v18 or higher)
+
+Scroll Wallet or any EVM-compatible wallet (MetaMask, Coinbase, etc.)
+
+Scroll Sepolia ETH for gas fees and payments
+
+🔧 Installation & Setup
+1. Install Dependencies
 npm install
-```
 
-### 2. Environment Configuration
+2. Environment Configuration
 
 Copy the example environment file:
-```bash
+
 cp .env.example .env
-```
+
 
 Fill in your environment variables:
-```env
-# Get from https://cloud.walletconnect.com
+
+# WalletConnect Project ID
 VITE_WALLETCONNECT_PROJECT_ID=your_project_id
 
 # For deployment (keep private!)
 PRIVATE_KEY=your_private_key
-BASESCAN_API_KEY=your_api_key
-```
+SCROLLSCAN_API_KEY=your_api_key
 
-### 3. Get Base Testnet Assets
+3. Get Scroll Testnet Assets
 
-**Base Testnet ETH:**
-- Visit [Base Sepolia Faucet](https://www.alchemy.com/faucets/base-sepolia)
-- Connect your wallet and claim testnet ETH
+Scroll Sepolia ETH (for gas & payments):
 
-**Base Testnet USDC:**
-- Visit [Circle Testnet Faucet](https://faucet.circle.com/)
-- Select Base Sepolia and mint USDC to your wallet
+Visit Scroll Faucet
 
-### 4. Deploy Smart Contracts
+Connect your wallet and claim testnet ETH
+
+4. Deploy Smart Contracts
 
 Compile contracts:
-```bash
+
 npm run compile
-```
 
-Deploy to Base testnet:
-```bash
+
+Deploy to Scroll testnet:
+
 npm run deploy
-```
 
-After deployment, update your `.env` file with the contract addresses shown in the console output.
 
-### 5. Start Development Server
+After deployment, update your .env file with the contract addresses from the console output.
 
-```bash
+5. Start Development Server
 npm run dev
-```
 
-## 📄 Smart Contracts
+📄 Smart Contracts
+FaceFitCredits.sol
 
-### FaceFitCredits.sol
-Main contract handling upload credits and USDC payments:
-- **Free Credits**: 2 per user (claimable once)
-- **Credit Price**: $5.00 USDC per upload
-- **Payment Method**: USDC (ERC-20) on Base testnet
-- **Events**: Credit purchases, usage, and claims
+Handles upload credits and payments:
 
-### FaceFitNFT.sol
-Optional NFT contract for skincare routine storage:
-- **Private Metadata**: Only owner can access detailed routine
-- **Public Metadata**: Basic NFT information
-- **Free Minting**: Only gas fees required
+Free Credits: 2 per user (claimable once)
 
-## 🎯 Usage Guide
+Credit Price: 0.002 Scroll ETH per upload
 
-### For Users
+Payment Method: Native Scroll payment
 
-1. **Connect Wallet**
-   - Click "Connect Wallet" button
-   - Select your preferred wallet (MetaMask, Coinbase, etc.)
-   - Switch to Base testnet if prompted
+Events: Credit purchases, usage, and claims
 
-2. **Claim Free Credits**
-   - New users get 2 free upload credits
-   - Click "Claim 2 Free Upload Credits!" button
-   - Confirm transaction in wallet
+FaceFitNFT.sol
 
-3. **Upload Photos**
-   - Each upload consumes 1 credit
-   - Drag & drop or browse for photos
-   - Get AI-powered fashion recommendations
+Optional NFT contract for skincare routines:
 
-4. **Buy Additional Credits**
-   - Navigate to "Buy Credits" tab
-   - Choose credit package (1, 5, or 10 uploads)
-   - Approve USDC spending (if first time)
-   - Confirm purchase transaction
+Private Metadata for owner-only access
 
-5. **Mint NFTs** (Optional)
-   - Fill in skincare routine details
-   - Click "Mint Skincare NFT"
-   - NFT stores your data privately on-chain
+Public Metadata for general display
 
-### For Developers
+Free Minting (gas-only)
 
-**Key Components:**
-- `ConnectWalletButton`: RainbowKit wallet connection
-- `UploadCreditDisplay`: Shows user's available credits
-- `PurchaseCreditsButton`: USDC payment flow
-- `ClaimFreeCreditsButton`: Free credit claiming
-- `NFTMinter`: Skincare routine NFT creation
+🎯 Usage Guide
+For Users
 
-**Contract Interaction:**
-```typescript
+Connect Wallet
+
+Click “Connect Wallet”
+
+Choose Scroll Wallet / MetaMask / Coinbase Wallet
+
+Switch to Scroll testnet when prompted
+
+Claim Free Credits
+
+New users get 2 free credits
+
+Click “Claim 2 Free Upload Credits”
+
+Confirm the on-chain transaction
+
+Upload Photos
+
+Each upload consumes 1 credit
+
+Get AI-powered style or skincare recommendations
+
+Buy More Credits
+
+Go to “Buy Credits”
+
+Choose package (1, 5, or 10 uploads)
+
+Confirm payment in your wallet (Scroll ETH)
+
+Mint NFTs (Optional)
+
+Enter skincare routine details
+
+Click “Mint NFT”
+
+Data stored securely on-chain
+
+🧠 Developer Notes
+
+Key React Components:
+
+ConnectWalletButton: Wallet connection via RainbowKit
+
+UploadCreditDisplay: Shows user’s available credits
+
+PurchaseCreditsButton: Scroll payment flow
+
+ClaimFreeCreditsButton: Free credit claim
+
+NFTMinter: Skincare routine NFT creation
+
+Contract Interaction Example:
+
 import { useReadContract, useWriteContract } from 'wagmi';
 import { CONTRACTS, FACEFIT_CREDITS_ABI } from '../config/web3';
 
@@ -156,46 +180,63 @@ await writeContract({
   functionName: 'purchaseCredits',
   args: [BigInt(creditAmount)],
 });
-```
 
-## 🔐 Security Features
+🔐 Security
 
-- **Reentrancy Protection**: OpenZeppelin ReentrancyGuard
-- **Access Control**: Ownable pattern for admin functions
-- **Private NFT Data**: Only token owner can access metadata
-- **USDC Integration**: Battle-tested ERC-20 standard
-- **Event Logging**: All transactions emit events for tracking
+Reentrancy Protection via OpenZeppelin
 
-## 🌐 Network Configuration
+Ownable Admin Control
 
-**Base Sepolia Testnet:**
-- **Chain ID**: 84532
-- **RPC URL**: https://sepolia.base.org
-- **Block Explorer**: https://sepolia.basescan.org
-- **USDC Address**: 0x036CbD53842c5426634e7929541eC2318f3dCF7e
+Private NFT Data for privacy
 
-## 🚨 Important Notes
+Native Scroll ETH Payments
 
-1. **Testnet Only**: This implementation uses Base testnet - NOT mainnet
-2. **Private Keys**: Never commit private keys to version control
-3. **API Keys**: Keep WalletConnect and API keys secure
-4. **Gas Fees**: Users pay gas fees for all transactions
-5. **USDC Required**: Users need testnet USDC to purchase credits
+Event Logging for all transactions
 
-## 📚 Additional Resources
+🌐 Network Configuration
 
-- [Base Documentation](https://docs.base.org/)
-- [Wagmi Documentation](https://wagmi.sh/)
-- [RainbowKit Documentation](https://www.rainbowkit.com/)
-- [Hardhat Documentation](https://hardhat.org/)
-- [OpenZeppelin Contracts](https://docs.openzeppelin.com/contracts/)
+Scroll Sepolia Testnet:
 
-## 🤝 Support
+Chain ID: 534351
 
-For issues or questions:
-1. Check the browser console for error messages
-2. Verify wallet is connected to Base testnet
-3. Ensure sufficient ETH for gas fees
-4. Confirm USDC balance for credit purchases
+RPC URL: https://sepolia-rpc.scroll.io
 
-Built with ❤️ for the Face-Fit Web3 ecosystem.
+Block Explorer: https://sepolia.scrollscan.dev
+
+🚨 Important Notes
+
+Scroll Testnet Only — not mainnet
+
+Private Keys must never be committed
+
+WalletConnect & API keys stay private
+
+Users pay Scroll ETH gas fees
+
+Ensure wallet is on Scroll network
+
+📚 Resources
+
+Scroll Docs
+
+Wagmi Docs
+
+RainbowKit Docs
+
+Hardhat Docs
+
+OpenZeppelin Docs
+
+🤝 Support
+
+For help:
+
+Check the console for errors
+
+Ensure wallet is connected to Scroll testnet
+
+Verify sufficient Scroll ETH balance
+
+Confirm smart contract addresses
+
+Built with ❤️ on Scroll for the next generation of AI + Web3 fashion.
